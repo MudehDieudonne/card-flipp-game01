@@ -13,9 +13,9 @@ let attempts = 0
 
 //start button event
 startBtn.addEventListener('click', () => {
-    startTimer()
-    startBtn.classList.add('hidden')
-    gameBoard.classList.remove('hidden')
+  startTimer()
+  startBtn.classList.add('hidden')
+  gameBoard.classList.remove('hidden')
 })
 
 // Card data and douplicate the pairs
@@ -56,10 +56,10 @@ let hours = 0
 let timer = null
 function stopwatch() {
   secons++
-  if(secons === 60) {
+  if (secons === 60) {
     secons = 0
     minutes++
-    if(minutes === 60) {
+    if (minutes === 60) {
       minutes = 0
       hours++
     }
@@ -92,49 +92,46 @@ function flipCard() {
   if (flippedCards.length < 2 && !this.classList.contains('flipped')) {
     this.classList.add('flipped')
     flippedCards.push(this)
-
-    if(flippedCards.length === 2) {
-        attempts ++
-        attemptsDisplay.textContent = attempts
-        checkForMatch()
+    if (flippedCards.length === 2) {
+      attempts ++
+      attemptsDisplay.textContent = attempts
+      checkForMatch()
     }
   }
 }
 
 //check match
 function checkForMatch() {
-    if(flippedCards[0].dataset.value === flippedCards[1].dataset.value) {
-        matchedCard.push(...flippedCards)
-        flippedCards = []
-        if(matchedCard.length === cards.length) {
-            stopTimer()
-            completionPage.classList.remove('hidden')
-            completionPage.innerHTML = `
-              <h2> Congratulations! You've matched all the cards!</h2>
-              <p>Total attempts: <span id="attempts">${attempts}</span></p>
-              <button id="play-again"><h2>Play Again</h2></button>
-            `
-          // Play Again
-          document.getElementById('play-again').addEventListener('click', () => {
-            completionPage.classList.add('hidden')
-            gameBoard.innerHTML = ''
-            cards = []
-            matchedCard = []
-            attempts = 0
-            attemptsDisplay.textContent = attempts
-            resetTimer()
-            startTimer()
-            createCards()
-          })
-        }
-    } else {
-        setTimeout(() => {
-            flippedCards.forEach(card => {
-                card.classList.remove('flipped')
-            })
-            flippedCards = []
-        }, 1000)
+  if (flippedCards[0].dataset.value === flippedCards[1].dataset.value) {
+    matchedCard.push(...flippedCards)
+    flippedCards = []
+    if (matchedCard.length === cards.length) {
+      stopTimer()
+      completionPage.classList.remove('hidden')
+      completionPage.innerHTML = `<h2> Congratulations! You've matched all the cards!</h2>
+        <p>Total attempts: <span id="attempts">${attempts}</span></p>
+        <button id="play-again"><h2>Play Again</h2></button>`
+// Play Again
+      document.getElementById('play-again').addEventListener('click', () => {
+        completionPage.classList.add('hidden')
+        gameBoard.innerHTML = ''
+        cards = []
+        matchedCard = []
+        attempts = 0
+        attemptsDisplay.textContent = attempts
+        resetTimer()
+        startTimer()
+        createCards()
+      })
     }
+  } else {
+    setTimeout(() => {
+      flippedCards.forEach(card => {
+        card.classList.remove('flipped')
+      })
+      flippedCards = []
+    }, 1000)
+  }
 }
 
 // Initialize game
