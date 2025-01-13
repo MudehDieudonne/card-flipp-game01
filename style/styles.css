@@ -1,0 +1,153 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f3efef;
+}
+
+.container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Game Board */
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 150px);
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 0.7em;
+  background-color: #e6f1f8f8;
+  border-radius: 10px;
+  border-color: 5px solid #e0e8ef;
+  border-collapse: collapse;
+  box-shadow: 15px 15px 30px #fff, -15px -15px 30px #fff;
+  transition: 0.5s ease;
+}
+
+/* Cards front and back */
+.card {
+  width: 150px;
+  height: 150px;
+  perspective: 1000px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, 
+.card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  transform: rotate(360deg);
+}
+
+.card-front {
+  background-color: #db06db;
+  color: #fff;
+}
+
+.card-back {
+  background-color: #fff;
+  color: #111;
+  transform: rotateY(180deg);
+}
+
+.completion-page {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+}
+
+button {
+  border: none;
+  border-radius: 20px;
+  position: relative;
+  background-color: #db06db;
+  color: #fff;
+  display: flex;
+  place-content: center;
+  place-items: center;
+  overflow: hidden;
+  padding: 5px 18px;
+  cursor: pointer;  
+}
+
+button h2 {
+  z-index: 1;
+  color: white;
+}
+
+button:hover {
+  transform: scale(0.95);
+}
+
+.hidden {
+  display: none;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  background-image: linear-gradient(180deg, #fff, #fff);
+  height: 10%;
+  animation: rotateBg 3s linear infinite;
+  transition: all 0.3s linear;
+}
+
+
+@keyframes rotateBg {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+button::after {
+  content: '';
+  position: absolute;
+  background: #db06db;
+  inset: 5px;
+  border-radius: 20px;
+}
+
+
+
+
