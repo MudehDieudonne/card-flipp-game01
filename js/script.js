@@ -80,14 +80,6 @@ function stopTimer() {
 
 //reset timer
 function resetTimer() {
-  stopTimer()
-  secons = 0
-  minutes = 0
-  hours = 0
-  timerDisplay.innerHTML = `<h2>00:00:00</h2>`
-}
-
-function resetTimer() {
   clearInterval(timer)
   secons = 0
   minutes = 0
@@ -97,7 +89,6 @@ function resetTimer() {
 
 // FLip Function
 function flipCard() {
-
   if (flippedCards.length < 2 && !this.classList.contains('flipped')) {
     this.classList.add('flipped')
     flippedCards.push(this)
@@ -120,7 +111,7 @@ function checkForMatch() {
             completionPage.classList.remove('hidden')
             completionPage.innerHTML = `
               <h2> Congratulations! You've matched all the cards!</h2>
-              <p>Total attempts: <span id="attemps">${attempts}</span></p>
+              <p>Total attempts: <span id="attempts">${attempts}</span></p>
               <button id="play-again"><h2>Play Again</h2></button>
             `
           // Play Again
