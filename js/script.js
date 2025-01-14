@@ -10,8 +10,7 @@ let flippedCards = []
 let matchedCard = []
 let attempts = 0
 
-
-//start button event
+// start button event
 startBtn.addEventListener('click', () => {
   startTimer()
   startBtn.classList.add('hidden')
@@ -22,12 +21,12 @@ startBtn.addEventListener('click', () => {
 const allCards = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
 // const allCards = [...cardValues, ...cardValues]
 
-//Shuffle Cards
+// Shuffle Cards
 function shuffle (array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
     console.log(`Swapping elements at indexes ${i} and ${j}`)
-    if (array[i] !== undefined && array[j] !== undefined){
+    if (array[i] !== undefined && array[j] !== undefined) {
       [array[i], array[j]] = [array[j], array[i]]
     }
   }
@@ -46,7 +45,7 @@ function createCards () {
         <div class="card-back">${value}</div>
       </div>
     `
-    console.log("beans")
+    console.log('beans')
     card.addEventListener('click', flipCard)
     gameBoard.appendChild(card)
     cards.push(card)
@@ -83,7 +82,7 @@ function stopTimer () {
 }
 
 // reset timer
-function resetTimer() {
+function resetTimer () {
   clearInterval(timer)
   secons = 0
   minutes = 0
@@ -116,7 +115,7 @@ function checkForMatch () {
         <p>Total attempts: <span id="attempts">${attempts}</span></p>
         <button id="play-again"><h2>Play Again</h2></button>`
       // Play Again
-      document.getElementById('play-again').addEventListener('click', () => {
+      playAgainBtn.addEventListener('click', () => {
         completionPage.classList.add('hidden')
         gameBoard.innerHTML = ''
         cards = []
