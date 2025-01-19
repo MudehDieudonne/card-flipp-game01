@@ -146,3 +146,50 @@ button::after {
   inset: 5px;
   border-radius: 20px;
 }
+
+@media (max-width: 768px) {
+  .game-board {
+    grid-template-columns: repeat(4, 100px);
+    gap: 8px;
+    padding: 0.5em;
+  }
+
+  .card {
+    width: 100px;
+    height: 100px;
+  }
+
+  .card-front,
+  .card-back {
+    font-size: 18px;
+  }
+
+  button {
+    padding: 6px 14px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-board {
+    grid-template-columns: repeat(4, 80px);
+    gap: 5px;
+    padding: 0.3em;
+  }
+
+  .card {
+    width: 80px;
+    height: 80px;
+  }
+
+  .card-front,
+  .card-back {
+    font-size: 14px;
+  }
+
+  button {
+    padding: 3px 9px;
+    font-size: 9px;
+  }
+}
+

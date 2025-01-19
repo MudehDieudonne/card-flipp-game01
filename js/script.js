@@ -25,7 +25,6 @@ const allCards = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'A', 'B', 'C', 'D', 'E
 function shuffle (array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
-    console.log(`Swapping elements at indexes ${i} and ${j}`)
     if (array[i] !== undefined && array[j] !== undefined) {
       [array[i], array[j]] = [array[j], array[i]]
     }
@@ -45,7 +44,6 @@ function createCards () {
         <div class="card-back">${value}</div>
       </div>
     `
-    console.log('beans')
     card.addEventListener('click', flipCard)
     gameBoard.appendChild(card)
     cards.push(card)
@@ -114,7 +112,7 @@ function checkForMatch () {
       completionPage.innerHTML = `<h2> Congratulations! You've matched all the cards!</h2>
         <p>Total attempts: <span id="attempts">${attempts}</span></p>
         <button id="play-again"><h2>Play Again</h2></button>`
-      // Play Again
+      // Play Again button
       playAgainBtn.addEventListener('click', () => {
         completionPage.classList.add('hidden')
         gameBoard.innerHTML = ''
@@ -137,5 +135,5 @@ function checkForMatch () {
   }
 }
 
-// Initialize game
+// Initialize or start game
 createCards()
