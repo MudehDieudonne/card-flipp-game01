@@ -113,6 +113,8 @@ function checkForMatch () {
         <p>Total attempts: <span id="attempts">${attempts}</span></p>
         <button id="play-again"><h2>Play Again</h2></button>`
       // Play Again button
+      // Re-fetch the dynamically added Play Again button
+      const playAgainBtn = document.getElementById('play-again');
       playAgainBtn.addEventListener('click', () => {
         completionPage.classList.add('hidden')
         gameBoard.innerHTML = ''
