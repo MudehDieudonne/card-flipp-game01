@@ -2,7 +2,6 @@ const startBtn = document.getElementById('start')
 const gameBoard = document.getElementById('game-board')
 const completionPage = document.getElementById('completion-page')
 const attemptsDisplay = document.getElementById('attempts')
-const playAgainBtn = document.getElementById('play-again')
 const timerDisplay = document.querySelector('.stop-watch')
 
 let cards = []
@@ -114,7 +113,7 @@ function checkForMatch () {
         <button id="play-again"><h2>Play Again</h2></button>`
       // Play Again button
       // Re-fetch the dynamically added Play Again button
-      const playAgainBtn = document.getElementById('play-again');
+      const playAgainBtn = document.getElementById('play-again')
       playAgainBtn.addEventListener('click', () => {
         completionPage.classList.add('hidden')
         gameBoard.innerHTML = ''
