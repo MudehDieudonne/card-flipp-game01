@@ -19,7 +19,6 @@ startBtn.addEventListener('click', () => {
 // Card data and douplicate the pairs
 const allCards = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
 
-
 // Shuffle Cards
 function shuffle (array) {
   for (let i = array.length - 1; i > 0; i--) {
